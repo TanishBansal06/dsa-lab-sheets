@@ -73,6 +73,17 @@ class circularlink{
         }while(temp!=head);
         cout<<endl;
     }
+int search(int val) {
+        if (head == NULL) return -1;
+        node* temp = head;
+        int pos = 0;
+        do {
+            if (temp->data == val) return pos;
+            temp = temp->next;
+            pos++;
+        } while (temp != head);
+        return -1;
+    }
 };
 int main() {
      circularlink cl;
@@ -85,4 +96,10 @@ int main() {
     cl.display();
     cl.pop(2);
     cl.display();
+    int x = 3;
+    int pos = cl.search(x);
+    if(pos != -1)
+        cout <<"value"<<x<<"position"<<pos<<endl;
+    else
+        cout <<"value"<<x<<"not found"<<endl;
 }
