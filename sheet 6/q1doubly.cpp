@@ -81,6 +81,17 @@ public:
         } while (temp != head);
         cout << endl;
     }
+    int search(int val) {
+        if (head == NULL) return -1;
+        node* temp = head;
+        int pos = 0;
+        do {
+            if (temp->data == val) return pos;
+            temp = temp->next;
+            pos++;
+        } while (temp != head);
+        return -1;
+    }
 };
 int main() {
     doublelink c;
@@ -93,4 +104,10 @@ int main() {
     c.display();
     c.pop(2);
     c.display();
+    int x = 3;
+    int pos = c.search(x);
+    if (pos != -1)
+        cout<<"value"<<x<<"position"<<pos<<endl;
+    else
+        cout<<"value"<<x<<"found"<<endl;
 }
